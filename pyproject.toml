@@ -1,0 +1,49 @@
+[project]
+name = "mblogscode"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "mkdocs-material>=9.6.23",
+    "mkdocstrings[python]>=0.30.1",
+]
+# Dependencies only needed for development and testing
+[dependency-groups]
+dev = [
+    "deptry>=0.24.0",
+    "pytest>=9.0.0",
+    "ruff>=0.14.4",
+    "ty>=0.0.1a25",
+]
+
+# ruff = Linting and formatting tool
+[tool.ruff]
+line-length = 88
+
+[tool.ruff.lint]
+# Error code categories:
+# E = pycodestyle (PEP 8), F = pyflakes, I = import sorting
+select = ["E", "F", "I"]
+# Ignore specific rule codes if needed (optional)
+ignore = ["E501"]
+
+# ruff formatting options
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+line-ending = "lf"
+
+# ty = Type checking tool
+[tool.ty.rules]
+index-out-of-bounds = "ignore"
+
+# pytest = Testing framework configuration
+[tool.pytest.ini_options]
+# Version of pytest to ensure compatibility
+minversion = "9.0"
+# Command line options to always include when pytest run
+# ra = show extra summary. q = reduce verbosity
+addopts = ["-ra", "-q"]
+# Lets pytest know to add src folder to sys.path
+pythonpath = ["src"]

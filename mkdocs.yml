@@ -1,0 +1,48 @@
+site_name: pybase Documentation
+site_url: https://example.com/docs/
+site_description: A python repo base 
+repo_url: https://github.com/myuser/myproject
+repo_name: pybase
+
+nav:
+  - Home: index.md 
+  - API: main.md
+
+theme:
+  name: material # Or 'readthedocs', 'mkdocs'
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: deep orange
+    - scheme: slate
+      primary: blue
+      accent: light blue
+  features:
+    - search.suggest
+    - search.highlight
+    - content.code.annotate
+    - toc.integrate
+
+
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          options:
+            docstring_style: google
+     
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - attr_list
+  - md_in_html
+  - toc:
+      permalink: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+
