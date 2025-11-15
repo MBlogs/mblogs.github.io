@@ -30,6 +30,12 @@ jobs:
       - name: Install dependencies (uv sync)
         run: uv sync
 
+      - name: Install dependencies (uv sync)
+        run: uv sync
+
+      - name: Install project itself (editable)
+        run: uv pip install -e .
+
       - name: Lint (ruff)
         run: ruff check
 
