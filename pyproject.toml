@@ -11,6 +11,7 @@ dev = [
     "deptry>=0.24.0",
     "mkdocs-material>=9.7.0",
     "mkdocstrings[python]>=0.30.1",
+    "pre-commit>=4.4.0",
     "pytest>=9.0.0",
     "ruff>=0.14.4",
     "ty>=0.0.1a25",

@@ -1,0 +1,37 @@
+repos:
+  # Ruff for linting
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.14.5
+    hooks:
+      - id: ruff-check
+        name: Linting (ruff)
+        entry: uv run ruff check
+
+  # Local hooks
+  - repo: local
+    hooks:
+      - id: ty
+        name: Type checking (ty)
+        entry: uv run ty check
+        language: system
+        types: [python]
+
+      - id: deptry
+        name: Dependency checks (deptry)
+        entry: uv run deptry .
+        language: system
+        types: [python]
+        pass_filenames: false
+
+      - id: pytest
+        name: Run Python tests (pytest)
+        entry: uv run pytest
+        language: system
+        types: [python]
+
+      - id: mkdocs
+        name: Build documentation (mkdocs)
+        entry: uv run mkdocs build --strict
+        language: system
+        types: [python]
+        pass_filenames: false
