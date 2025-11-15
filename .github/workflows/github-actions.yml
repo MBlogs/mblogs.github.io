@@ -1,0 +1,46 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5   
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install uv
+        run: pip install uv
+
+      - name: Create virtual environment
+        run: uv venv .venv
+
+      - name: Add venv to PATH
+        run: echo "$(pwd)/.venv/bin" >> $GITHUB_PATH
+
+      - name: Install dependencies (uv sync)
+        run: uv sync
+
+      - name: Lint (ruff)
+        run: ruff check
+
+      - name: Type-check
+        run: ty check
+
+      - name: Dependency check
+        run: deptry .
+
+      - name: Run tests
+        run: pytest
+
+      - name: Build docs
+        run: mkdocs build
