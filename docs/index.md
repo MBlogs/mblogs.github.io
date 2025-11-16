@@ -1,5 +1,4 @@
-Generated documentation
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+
 
 ## Generate
 ```

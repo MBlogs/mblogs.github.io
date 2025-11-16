@@ -1,10 +1,18 @@
-This repository serves as a base for a Python project
+This project helps understand the various tools and files you see 
+in typical Python projects
 
-# Install
-Check pre-requisites before running the following in root
+Python tooling is being released and updated all the time.
+It can be confusing.
+Especially random config .yaml files without understanding what on earth they do.
+
+# Where to go?
+Head over to docs/ folder. There are markdown files there covering many topics.
+
+# Install this project
+If wanting to try out some of the tools, you can install this project
 ```bash
 uv sync
-uv run pybase/main.py
+uv run pybase-explainer/main.py
 ```
 
 # Python Tool Commands
