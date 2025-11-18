@@ -1,5 +1,5 @@
-site_name: pybase Documentation
-site_url: https://example.com/docs/
+site_name: pybase-explainer
+site_url: 
 site_description: A python repo base 
 repo_url: 
 repo_name: pybase
@@ -8,26 +8,26 @@ nav:
   - Home: index.md 
   - Template: template.md
   - Python Packages:
-    - python/ruff.md
-    - python/deptry.md
-    - python/mkdocs.md
-    - python/pdm.md
-    - python/pytest.md
-    - python/pythonproject.md
-    - python/ty.md
-    - python/uv.md
-    - python/venv.md
+    - Ruff: python/ruff.md
+    - Deptry: python/deptry.md
+    - Mkdocs: python/mkdocs.md
+    - Pdm: python/pdm.md
+    - Pytest: python/pytest.md
+    - Pythonproject: python/pythonproject.md
+    - Ty: python/ty.md
+    - Uv: python/uv.md
+    - Venv: python/venv.md
   - CI/CD:
-    - ci/git.md
-    - ci/githubaction.md
-    - ci/precommithook.md
+    - Git: ci/git.md
+    - Githubaction: ci/githubaction.md
+    - Precommithook: ci/precommithook.md
   - IDEs:
-    - ide/cursor.md
-    - ide/visualstudio.md
+    - Cursor: ide/cursor.md
+    - Visualstudio: ide/visualstudio.md
   - Terminal:
-    - terminal/terminal.md
-    - terminal/ohmyposh.md
-    - terminal/ssh.md
+    - Terminal: terminal/terminal.md
+    - Ohmyposh: terminal/ohmyposh.md
+    - Ssh: terminal/ssh.md
 
 theme:
   name: material # Or 'readthedocs', 'mkdocs'
@@ -43,6 +43,7 @@ theme:
     - search.highlight
     - content.code.annotate
     - toc.integrate
+    
 
 
 plugins:
@@ -52,6 +53,7 @@ plugins:
         python:
           options:
             docstring_style: google
+  - include-markdown
      
 
 markdown_extensions:

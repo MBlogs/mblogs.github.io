@@ -8,7 +8,7 @@ Add to project
 `uv add --dev ty`
 
 Run:
-`uvx ty check`
+`ty check`
 
 ### Configuration
 [tool.ty.rules]

@@ -1,3 +1,4 @@
+# What is this?
 This project helps understand the various tools and files you see 
 in typical Python projects
 
@@ -5,18 +6,51 @@ Python tooling is being released and updated all the time.
 It can be confusing.
 Especially random config .yaml files without understanding what on earth they do.
 
-# Where to go?
-Head over to docs/ folder. There are markdown files there covering many topics.
+# I'm on the site, what is here?
+If on the site, you will find content on the left
+The repository for this site exists at
+https://github.com/MBlogs/pybase-explainer
 
-# Install this project
-If wanting to try out some of the tools, you can install this project
+
+# I'm looking at the github repository, what now?
+If in the repository, you can head over to docs/ folder. 
+There are markdown files there of what is on the site
+Alternatively you can install the project and create the site direct.
+
+### Install
+Run the following in a terminal
+1. Clone the repository (copy this into a local folder)
+```bash
+git clone "https://github.com/MBlogs/pybase-explainer.git"
+```
+2. Change directory to be inside your new folder
+```bash
+cd pybase-explainer
+```
+3. Sync to install dependencies and create .venv
 ```bash
 uv sync
-uv run pybase-explainer/main.py
+```
+Make sure you have uv installed to run this
+https://docs.astral.sh/uv/getting-started/installation/
+4. Activate the .venv to run commands direct inside
+```bash
+source .venv/bin/activate
+```
+5. From here can test out the Python tool commands below
+or host the documentation side with eg.
+```bash
+mkdocs serve
+```
+and open browser to your localhost where its being served
+```
+open http://127.0.0.1:8000/docs/
 ```
 
+
+
 # Python Tool Commands
-All to be run from inside the Python .venv first
+All to be run from inside the Python .venv first)
 ```bash
 source .venv/bin/activate
 ```

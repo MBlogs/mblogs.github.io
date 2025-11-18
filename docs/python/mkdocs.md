@@ -33,36 +33,10 @@ Special characters are used to
 ### Markdown docstrings
 Provided:
 1. installed mkdocstrings plugin
-2. 
 
 This markdown will automatically generate docs
 ```docs/main.md
-::: src.pybase.main
-```
-
-### Function with Docstring example
-```src/pybase/main.py
-def myprint(out: str="Hello, World!") -> None: 
-    """
-    Print a message to the console.
-
-    Args:
-        out (str): The message to print. Defaults to "Hello, World!".
-
-    Returns:
-        None
-
-    Examples:
-        >>> main()
-        Hello, World!
-
-        >>> main("Custom Output")
-        Custom Output
-    """
-    print(out)
-
-if __name__ == "__main__":
-    myprint()
+::: pybase-explainer.main
 ```
 
 
