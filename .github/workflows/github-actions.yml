@@ -1,10 +1,12 @@
 name: CI
 
 on:
-  workflow_dispatch:  # Manual trigger
-  #push:              # Automatic trigger
-  #  branches: [ main ]
-  
+  push:
+    branches: [ main ]      # Deploy automatically on all commits to main
+  workflow_dispatch:         # Still allows manual runs
+
+permissions:
+  contents: write            # Required for mkdocs gh-deploy
 
 jobs:
   ci:
@@ -12,7 +14,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v5   
+        uses: actions/checkout@v5
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -28,26 +30,18 @@ jobs:
       - name: Add venv to PATH
         run: echo "$(pwd)/.venv/bin" >> $GITHUB_PATH
 
-      - name: Install dependencies (uv sync)
+      - name: Install dependencies
         run: uv sync
 
-      - name: Install dependencies (uv sync)
-        run: uv sync
-
-      - name: Install project itself (editable)
+      - name: Install project (editable mode)
         run: uv pip install -e .
 
-      - name: Lint (ruff)
-        run: ruff check
+      # Optional — remove if you fully trust pre-commit tests
+      # - name: Run tests
+      #   run: uv run pytest
 
-      - name: Type-check
-        run: ty check
+      - name: Build docs (strict)
+        run: uv run mkdocs build --strict
 
-      - name: Dependency check
-        run: deptry .
-
-      - name: Run tests
-        run: pytest
-
-      - name: Build docs
-        run: mkdocs build
+      - name: Deploy docs to GitHub Pages
+        run: uv run mkdocs gh-deploy --force
