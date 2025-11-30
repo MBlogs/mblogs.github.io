@@ -1,63 +1,14 @@
 https://docs.github.com/en/actions/get-started/quickstart
 
-Create a github actions yaml 
-Makes new folder and file;
-At: `.github/workflows/github-actions.yml`
+Github actions run code upon certain git actions
+Such as pushing to main branch.
 
-# Python Example
-```
-name: CI
-
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-
-jobs:
-  ci:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v5   
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
-
-      - name: Install uv
-        run: pip install uv
-
-      - name: Create virtual environment
-        run: uv venv .venv
-
-      - name: Add venv to PATH
-        run: echo "$(pwd)/.venv/bin" >> $GITHUB_PATH
-
-      - name: Install dependencies (uv sync)
-        run: uv sync
-
-      - name: Lint (ruff)
-        run: ruff check
-
-      - name: Type-check
-        run: ty check
-
-      - name: Dependency check
-        run: deptry .
-
-      - name: Run tests
-        run: pytest
-
-      - name: Build docs
-        run: mkdocs build
-
-```
+Executes according to a github actions configuration yaml file
+For example at: `.github/workflows/github-actions.yml`
 
 
-# Demo
-```
+# Example: Basic demo github-actions.yml
+```yaml
 name: GitHub Actions Demo
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: [push]
@@ -77,3 +28,75 @@ jobs:
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
 ```
+
+# Example: Python github-actions.yml
+```yaml
+name: CI
+
+on:
+  push:
+    branches: [ main ]      # Deploy automatically on all commits to main
+  workflow_dispatch:         # Still allows manual runs
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install uv
+        run: pip install uv
+
+      - name: Create virtual environment
+        run: uv venv .venv
+
+      - name: Add venv to PATH
+        run: echo "$(pwd)/.venv/bin" >> $GITHUB_PATH
+
+      - name: Install dependencies
+        run: uv sync
+
+      - name: Install project (editable mode)
+        run: uv pip install -e .
+
+      # Optional — remove if you fully trust pre-commit tests
+      # - name: Run tests
+      #   run: uv run pytest
+
+      - name: Build docs (strict)
+        run: uv run mkdocs build --strict
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./site
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+```
+

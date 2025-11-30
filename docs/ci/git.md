@@ -7,39 +7,21 @@
 |`git branch`|Status of branches|
 |`git checkout -b dev`|Create and checkout local branch called dev|
 |`git merge dev`|Merge branch (dev) into current|
-|||
-|||
-|||
-|||
-
-# Commands: Advanced
-|Command|Description|
-|-|-|
 |`git init`|Initialise git repo|
 |||
-|||
-|||
-|||
-|`git commit --amend --reset-author`|Ammend a previous commit (reset author)|
+
 
 # Create New
 1. Creates .git repo
 `git init`
-2. Add anything to .gitignore to not commit
-`touch .gitignore`
-3. Stage everything
+2. Stage everything
 `git add -A`
-4. Commit everything
-`git commit m "Initial commit"`
-5. Create and push to origin
+3. Perform the commit 
+`git commit -m "Initial commit"`
+4. Create and push to origin
 `git remote add origin git@github.com:MBlogs/pybase.git`
-6. Push and set upstream
+5. Push and set upstream
 `git push -u origin main`
-
-# Branching
-1. Create new branch
-
-
 
 
 # Global

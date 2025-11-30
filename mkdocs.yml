@@ -1,7 +1,7 @@
-site_name: pybase-explainer
-site_url: 
-site_description: A python repo base 
-repo_url: 
+site_name: mblogs
+site_url: https://mblogs.github.io
+site_description: A mix of knowledge, tutorials, tips and blogs
+repo_url: https://github.com/MBlogs/mblogs.github.io
 repo_name: pybase
 
 nav:
@@ -10,6 +10,7 @@ nav:
   - Python Packages:
     - Ruff: python/ruff.md
     - Deptry: python/deptry.md
+    - Docstrings: python/docstrings.md
     - Mkdocs: python/mkdocs.md
     - Pdm: python/pdm.md
     - Pytest: python/pytest.md
@@ -48,12 +49,12 @@ theme:
 
 plugins:
   - search
+  - include-markdown
   - mkdocstrings:
       handlers:
         python:
           options:
             docstring_style: google
-  - include-markdown
      
 
 markdown_extensions:

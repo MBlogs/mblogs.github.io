@@ -1,8 +1,11 @@
+precommit hooks
+
+
 # Setup & Config
 `uv add pre-commit --dev`
 
 Define a pre-commit-config.yaml in project root
-```
+```yaml
 repos:
   # Ruff for linting
   - repo: https://github.com/astral-sh/ruff-pre-commit

@@ -36,7 +36,7 @@ Provided:
 
 This markdown will automatically generate docs
 ```docs/main.md
-::: pybase-explainer.main
+::: mblogs.main
 ```
 
 
