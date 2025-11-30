@@ -1,23 +1,20 @@
-# What is this?
 This project helps understand the various tools and files you see 
 in typical Python projects
 
-Python tooling is being released and updated all the time.
-It can be confusing.
+Python tooling is being released and updated all the time. It can be confusing. 
 Especially random config .yaml files without understanding what on earth they do.
 
-# I'm on the site, what is here?
-If on the site, you will find content on the left
-The repository for this site exists at
-https://github.com/MBlogs/pybase-explainer
+#### Repository
+The repository for this site exists at:
+
+<https://github.com/MBlogs/mblogs.github.io>
+
+- The docs/ folder contains all .md files behind all articles
+- There are markdown files there of what is on the site
+- You can install the project and create the site directly too
 
 
-# I'm looking at the github repository, what now?
-If in the repository, you can head over to docs/ folder. 
-There are markdown files there of what is on the site
-Alternatively you can install the project and create the site direct.
-
-### Install
+#### Install
 Run the following in a terminal
 1. Clone the repository (copy this into a local folder)
 ```bash
@@ -46,9 +43,7 @@ and open browser to your localhost where its being served
 ```
 open http://127.0.0.1:8000/docs/
 ```
-
-
-
+#
 # Python Tool Commands
 All to be run from inside the Python .venv first)
 ```bash
