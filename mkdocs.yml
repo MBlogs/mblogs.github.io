@@ -2,7 +2,7 @@ site_name: mblogs
 site_url: https://mblogs.github.io
 site_description: A mix of knowledge, tutorials, tips and blogs
 repo_url: https://github.com/MBlogs/mblogs.github.io
-repo_name: pybase
+repo_name: mblogs.github.io
 
 nav:
   - Home: index.md 
